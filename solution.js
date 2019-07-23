@@ -11,12 +11,12 @@ for (let i=0;i<6;i++) {
         parsingResult[count] = new Promise((resolve, reject) => {
             request(`https://www.bankmega.com/promolainnya.php?product=0&subcat=${i+1}&page=${j+1}`, (err, res, html) => {        
                if (!err) {
-                    var dataList = []
-                    var $ = cheerio.load(html);
-                    var resultData = $('#imgClass');
+                    let dataList = []
+                    const $ = cheerio.load(html);
+                    const resultData = $('#imgClass');
                     if (resultData.length>0) {
                         resultData.each(function(i, val) {
-                            var dataTemp = {
+                            const dataTemp = {
                                 title: $(this).attr('title'),
                                 imgurl: $(this).attr('src'),
                             };
