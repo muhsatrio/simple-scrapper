@@ -3,8 +3,9 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 let parsingResult = [];
-let page;
 let count = 0;
+
+
 
 for (let i=0;i<6;i++) {
     for (let j=0;j<15;j++) {
