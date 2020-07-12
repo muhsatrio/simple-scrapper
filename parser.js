@@ -15,6 +15,7 @@ const rawCategories = [
 ];
 const urlGlobal = 'https://www.bankmega.com/promolainnya.php';
 
+// Function definition
 
 const parsingData = async (subcategory, page) => {
     const parseResult = await request(`${urlGlobal}?product=0&subcat=${subcategory}&page=${page}`);
