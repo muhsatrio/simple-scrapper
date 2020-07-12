@@ -11,7 +11,7 @@ npm install
 
 And then run the file by command
 ```
-node solution.js
+node parser.js
 ```
 
 And the result will be available in **solution.json**
