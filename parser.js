@@ -56,5 +56,6 @@ const mainProgram = async () => {
 mainProgram();
 
 module.exports = {
-    urlGlobal
+    urlGlobal,
+    parsingData
 };
