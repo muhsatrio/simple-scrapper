@@ -57,5 +57,7 @@ mainProgram();
 
 module.exports = {
     urlGlobal,
+    rawCategories,
+    pages,
     parsingData
 };
