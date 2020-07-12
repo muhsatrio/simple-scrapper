@@ -2,6 +2,8 @@ const request = require('request-promise');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
+// Constant definition
+
 const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 const rawCategories = [
     'Travel_and Entertainment',
@@ -10,10 +12,12 @@ const rawCategories = [
     'Gadget and Electronics',
     'Daily Needs and Home Appliances',
     'Other'
-]
+];
+const urlGlobal = 'https://www.bankmega.com/promolainnya.php';
+
 
 const parsingData = async (subcategory, page) => {
-    const parseResult = await request(`https://www.bankmega.com/promolainnya.php?product=0&subcat=${subcategory}&page=${page}`);
+    const parseResult = await request(`${urlGlobal}?product=0&subcat=${subcategory}&page=${page}`);
     let dataList = []
     const $ = cheerio.load(parseResult);
     const resultData = $('#imgClass');
@@ -49,3 +53,7 @@ const mainProgram = async () => {
 }
 
 mainProgram();
+
+module.exports = {
+    urlGlobal
+};

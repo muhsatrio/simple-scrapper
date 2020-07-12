@@ -2,9 +2,10 @@
   "name": "new",
   "version": "1.0.0",
   "description": "latihan scrapping",
-  "main": "solution.js",
+  "main": "parser.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node parser.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +14,8 @@
     "http": "0.0.0",
     "request": "^2.88.2",
     "request-promise": "^4.2.5"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
   }
 }
