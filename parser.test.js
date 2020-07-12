@@ -5,5 +5,5 @@ const urlReturn = url => {
 }
 
 test('url should be https://www.bankmega.com/promolainnya.php', () => {
-    expect(urlReturn(listUrl.urlGlobal)).toBe('https://www.bankmega.com/promolainnya');
+    expect(urlReturn(listUrl.urlGlobal)).toBe('https://www.bankmega.com/promolainnya.php');
 });
