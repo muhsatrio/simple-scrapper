@@ -60,5 +60,6 @@ mainProgram();
 module.exports = {
     urlGlobal,
     rawCategories,
-    parsingData
+    parsingData,
+    maxPage
 };

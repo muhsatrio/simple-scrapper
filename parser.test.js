@@ -8,9 +8,9 @@ test('rawCategories should be list type', async () => {
     const value = await parser.rawCategories;
     expect(Array.isArray(value)).toBe(true);
 });
-test('pages should be list type', async () => {
-    const value = await parser.pages;
-    expect(Array.isArray(value)).toBe(true);
+test('maxPage should be in range from 1 to 14', async () => {
+    const value = await parser.maxPage;
+    expect(value >= 1 && value <= 14).toBe(true);
 });
 test('parsingData() should not return null', async () => {
     const result = await parser.parsingData(1, 1);
