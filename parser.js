@@ -3,8 +3,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 // Constant definition
-
-const pages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+const maxPage = 14;
 const rawCategories = [
     'Travel_and Entertainment',
     'Lifestyle and Wellness',
@@ -35,17 +34,18 @@ const parsingData = async (subcategory, page) => {
 
 const mainProgram = async () => {
     const promiseParse = rawCategories.map(async (eachCategory, numCategory) => {
-        const promisePages = pages.map(async (eachPage) => {
+        let allResultsParsedData = [];
+        for (let eachPage=1;eachPage<=maxPage;eachPage++) {
             const resultParse = await parsingData(numCategory+1, eachPage);
-            return resultParse;
-        });
-        const resultData = await Promise.all(promisePages);
+            allResultsParsedData = [...allResultsParsedData, resultParse];
+        }
         return {
             category: eachCategory,
-            data: resultData
+            data: allResultsParsedData
         };
-    })
+    });
     const results = await Promise.all(promiseParse);
+
     fs.writeFile ("solution.json", JSON.stringify(results), (err) => {
         if (err) throw err;
         console.log('solution.json created');
