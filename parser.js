@@ -37,7 +37,9 @@ const mainProgram = async () => {
         let allResultsParsedData = [];
         for (let eachPage=1;eachPage<=maxPage;eachPage++) {
             const resultParse = await parsingData(numCategory+1, eachPage);
-            allResultsParsedData = [...allResultsParsedData, resultParse];
+            if (resultParse.length>0) {
+                allResultsParsedData = [...allResultsParsedData, resultParse];
+            }
         }
         return {
             category: eachCategory,
@@ -58,6 +60,5 @@ mainProgram();
 module.exports = {
     urlGlobal,
     rawCategories,
-    pages,
     parsingData
 };
